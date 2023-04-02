@@ -1,0 +1,6 @@
+@use "/src/variables" as var;
+
+.wrapper {
+  height: 100%;
+  background-color: var.$color-tuna;
+}
