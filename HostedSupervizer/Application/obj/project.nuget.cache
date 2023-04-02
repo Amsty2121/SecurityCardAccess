@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "YzsndLwlHI0jm5XVWNRVI0pWIilJbj/DY/c/wdRAxsfuaC6rX88wdgdYB6W3rTYWbpsOFOqCU7a1G/mRErRFWw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccess\\HostedSupervizer\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DGusac\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\DGusac\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\DGusac\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
