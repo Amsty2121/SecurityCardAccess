@@ -6,6 +6,7 @@ using Domain.Entities;
 using Domain.Models.PagedRequest;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 
 namespace AdminApi.Controllers
 {
@@ -28,13 +29,13 @@ namespace AdminApi.Controllers
         [HttpPost("withDevice")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddSessionWithDevice([FromBody] GenerateSessionRequestByAdminWithDevice request,
-                                                              CancellationToken token = default)
+                                                              CancellationToken cancellationToken = default)
         {
             try
             {
                 var session = _mapper.Map<Session>(request);
                 session.Id = Guid.NewGuid();
-                var result = await _sessionService.Add(session, token);
+                var result = await _sessionService.Add(session, cancellationToken);
 
                 if (result.IsSuccess)
                 {
@@ -52,13 +53,13 @@ namespace AdminApi.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddSessionWithoutDevice([FromBody] GenerateSessionRequestByAdminWithoutDevice request,
-                                                                 CancellationToken token = default)
+                                                                 CancellationToken cancellationToken = default)
         {
             try
             {
                 var session = _mapper.Map<Session>(request);
                 session.Id = Guid.NewGuid();
-                var result = await _sessionService.Add(session, token);
+                var result = await _sessionService.Add(session, cancellationToken);
 
                 if (result.IsSuccess)
                 {
@@ -76,11 +77,11 @@ namespace AdminApi.Controllers
 
         [HttpDelete]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteSession([FromQuery] Guid id, CancellationToken token = default)
+        public async Task<IActionResult> DeleteSession([FromQuery] Guid id, CancellationToken cancellationToken = default)
         {
             try
             {
-                var result = await _sessionService.Remove(id, token);
+                var result = await _sessionService.Remove(id, cancellationToken);
 
                 if (result.IsSuccess)
                 {
@@ -98,11 +99,11 @@ namespace AdminApi.Controllers
         [HttpGet("activate")]
         [Authorize(Roles = "User, Admin")]
 
-        public async Task<IActionResult> ActivateSession([FromQuery] Guid id, CancellationToken token = default)
+        public async Task<IActionResult> ActivateSession([FromQuery] Guid id, CancellationToken cancellationToken = default)
         {
             try
             {
-                var result = await _sessionService.Use(id, token);
+                var result = await _sessionService.Use(id, cancellationToken);
 
                 if (result.IsSuccess)
                 {
@@ -119,11 +120,11 @@ namespace AdminApi.Controllers
 
         [HttpGet("all")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllSessions(CancellationToken token = default)
+        public async Task<IActionResult> GetAllSessions(CancellationToken cancellationToken = default)
         {
             try
             {
-                return (await _sessionService.GetAll(token)).ToOk(c => c);
+                return (await _sessionService.GetAll(cancellationToken)).ToOk(c => c);
             }
             catch (Exception)
             {
@@ -132,12 +133,12 @@ namespace AdminApi.Controllers
         }
 
         [HttpPost("close")]
-        public async Task<IActionResult> CloseSession([FromBody] CloseSessionRequestById request,
-                                                      CancellationToken token = default)
+        public async Task<IActionResult> CloseSession([FromBody] CloseSessionRequestBySessionId request,
+                                                      CancellationToken cancellationToken = default)
         {
             try
             {
-                var result = await _sessionService.CloseSession(request.Id, token);
+                var result = await _sessionService.CloseSession(request.Id, cancellationToken);
 
                 return result.ToOk(c => true);
             }
@@ -149,11 +150,11 @@ namespace AdminApi.Controllers
 
         [HttpPost("paginated-search")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetPaged([FromBody] PagedRequest request, CancellationToken token = default)
+        public async Task<IActionResult> GetPaged([FromBody] PagedRequest request, CancellationToken cancellationToken = default)
         {
             try
             {
-                return (await _sessionService.GetPagedData(request, token)).ToOk(c => c);
+                return (await _sessionService.GetPagedData(request, cancellationToken)).ToOk(c => c);
             }
             catch (Exception)
             {

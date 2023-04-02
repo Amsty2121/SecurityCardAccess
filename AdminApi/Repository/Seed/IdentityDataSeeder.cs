@@ -12,11 +12,8 @@ namespace Repository.Seed
                 {
                     new User()
                     {
-                        UserName = "GodAdmin",
-                        Email = "admin@microsoft.com",
-                        FirstName = "GodAdmin",
-                        LastName ="GodAdmin",
-                        Company = "Administration"
+                        UserName = "admin@microsoft.com",
+                        Department = "Administration"
                     }
                 };
 
@@ -34,11 +31,8 @@ namespace Repository.Seed
                 {
                     new User
                     {
-                        UserName = "JoraCardan",
-                        Email = "jora.cardan@microsoft.com",
-                        FirstName = "Jora",
-                        LastName ="Cardan",
-                        Company = "CleaningServices"
+                        UserName = "jora.cardan@microsoft.com",
+                        Department = "CleaningServices"
                     }
                 };
 

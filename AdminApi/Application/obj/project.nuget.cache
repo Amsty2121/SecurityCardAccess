@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/niVj2iKhAtXoKiNqONPIN7GE0qQMpJuGOwCaYXFcu8goMrzFli/Suxe4i5wEN3u7xNloO3jQVGY8fu88IN0UA==",
+  "dgSpecHash": "80km8E/lyykSiK+6/dkxM21GS8M6P+6vn/5kvfnSsAetRrimmb61z8rDHFTlhA4CjP7Spw9Js4lroDNPkPa3nw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DGusac\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DGusac\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",

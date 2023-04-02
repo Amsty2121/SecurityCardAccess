@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Repository.Migrations.SessionContextMigrations
+namespace Repository.Migrations.SessionMigrations
 {
     public partial class Initial : Migration
     {
@@ -14,12 +14,12 @@ namespace Repository.Migrations.SessionContextMigrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PassCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AccessLevel = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     CreateUtcDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateUtcDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ActivationUtcDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     LastUsingUtcDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>

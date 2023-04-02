@@ -49,9 +49,7 @@ namespace Application.Services
             {
                 new Claim(nameof(User.Id), user.Id.ToString()),
                 new Claim(nameof(User.UserName), user.UserName),
-                new Claim(nameof(User.FirstName), user.FirstName),
-                new Claim(nameof(User.LastName), user.LastName),
-                new Claim(nameof(User.Company), user.Company)
+                new Claim(nameof(User.Department), user.Department)
             };
 
             foreach(var role in roles)

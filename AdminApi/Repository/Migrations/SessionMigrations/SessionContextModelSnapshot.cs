@@ -3,19 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
 #nullable disable
 
-namespace Repository.Migrations.SessionContextMigrations
+namespace Repository.Migrations.SessionMigrations
 {
     [DbContext(typeof(SessionContext))]
-    [Migration("20230305094703_Initial")]
-    partial class Initial
+    partial class SessionContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +31,6 @@ namespace Repository.Migrations.SessionContextMigrations
                     b.Property<int>("AccessLevel")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("ActivationUtcDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("CreateUtcDate")
                         .HasColumnType("datetime2");
 
@@ -45,6 +40,10 @@ namespace Repository.Migrations.SessionContextMigrations
 
                     b.Property<DateTime?>("LastUsingUtcDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("PassCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdateUtcDate")
                         .HasColumnType("datetime2");
@@ -138,11 +137,11 @@ namespace Repository.Migrations.SessionContextMigrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Company")
-                        .IsRequired()
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ConcurrencyStamp")
+                    b.Property<string>("Department")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -150,14 +149,6 @@ namespace Repository.Migrations.SessionContextMigrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");

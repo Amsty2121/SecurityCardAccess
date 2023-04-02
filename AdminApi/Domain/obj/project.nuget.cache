@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u6ASc/PppdmEyuw9+CZdtUSGcZEKzNGG2EiiIs5nLCHCWFvTKFn5uqYeabatvm4ohTSOaIB0IzpMLgZXElWVKg==",
+  "dgSpecHash": "sktHDCm9kkHFlGKPcj9dBcfqEW00rcoyk5rgkk0rnc2JRwdlaX84glO4mjGbCYe9wWGOsDWCxwJ5SRqJbt8qLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DGusac\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.14\\microsoft.aspnetcore.cryptography.internal.6.0.14.nupkg.sha512",
     "C:\\Users\\DGusac\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.14\\microsoft.aspnetcore.cryptography.keyderivation.6.0.14.nupkg.sha512",

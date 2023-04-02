@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kovxFq3ny8KLKfOGH3K+lJJ/vF+cz2DKuYTUnosa/xg9ZEFExRRFjB+XYtXnGc472M6pTVBizSQhTHyxLTRPUw==",
+  "dgSpecHash": "F5NTw8XgVh0ur4FM8YSPfDh85wSXc4hN03wXK5nWZMlgQJ31g1MYhGdHxSXDg4Y8Wc/WkJSU7knfXaoIabENyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj",
+  "projectFilePath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DGusac\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DGusac\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
