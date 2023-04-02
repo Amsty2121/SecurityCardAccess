@@ -30,6 +30,8 @@ namespace Application.Extensions
 
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = authOptions.GetSymmetricSecurityKey(),
+
+                    RoleClaimType = "Roles"
                 };
             });
         }

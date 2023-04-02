@@ -2,11 +2,14 @@
 using Application.IServices;
 using Domain.Entities;
 using Domain.Exceptions;
+using LanguageExt.Common;
+using LanguageExt.Pipes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Transactions;
 
 namespace Application.Services
 {
@@ -55,7 +58,7 @@ namespace Application.Services
             foreach(var role in roles)
             {
                 claims.Add(new Claim("Roles", role));
-                }
+            }
 
             var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(),
                                                            SecurityAlgorithms.HmacSha256);
@@ -73,19 +76,43 @@ namespace Application.Services
             return encodedToken;
         }
 
-        public async Task Register(User user, string password, string role, CancellationToken cancellationToken = default)
+        public async Task<bool> Register(User user, string password, string role, CancellationToken cancellationToken = default)
         {
-            var result = await _userManager.CreateAsync(user, password);
+            using var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
-            if (!result.Succeeded)
+            var creationResult = await _userManager.CreateAsync(user, password);
+
+            var roleAddingResult = await _userManager.AddToRoleAsync(user, role);
+
+            scope.Complete();
+
+            if (!creationResult.Succeeded)
             {
-                var errorMessage = string.Join('\n', result.Errors.Select(x => x.Description).ToArray());
+                var errorMessage = string.Join('\n', creationResult.Errors.Select(x => x.Description).ToArray());
                 throw new AccountRegisterException(errorMessage);
             }
 
-            await _userManager.AddToRoleAsync(user, role);
+            if (!roleAddingResult.Succeeded)
+            {
+                var errorMessage = string.Join('\n', roleAddingResult.Errors.Select(x => x.Description).ToArray());
+                throw new AccountRegisterException(errorMessage);
+            }
+
+            return creationResult.Succeeded && roleAddingResult.Succeeded;
 
             //var userResult = await _userManager.FindByNameAsync(user.UserName);
+        }
+
+        public async Task<bool> Delete(Guid id, CancellationToken cancellationToken = default)
+        {
+            var user = _userManager.FindByIdAsync(id.ToString()).Result;
+            
+            if (user == null)
+            {
+                return false;
+            }
+
+            return _userManager.DeleteAsync(user).Result.Succeeded;
         }
     }
 }

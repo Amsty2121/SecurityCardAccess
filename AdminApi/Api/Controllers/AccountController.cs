@@ -36,21 +36,33 @@ namespace AdminApi.Controllers
             }
         }
 
-        [HttpPost("registration")]
+        [HttpPost("register")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest, CancellationToken cancellationToken=default)
+        public async Task<IActionResult> Register([FromQuery] RegisterRequest registerRequest, CancellationToken cancellationToken=default)
         {
             var user = _mapper.Map<User>(registerRequest);
             try
             {
-                await _accountService.Register(user, registerRequest.Password, registerRequest.Role.ToString(), cancellationToken);
+                return await _accountService.Register(user, registerRequest.Password, registerRequest.Role.ToString(), cancellationToken) ? Ok() : BadRequest();
             }
             catch (AccountRegisterException ex)
             {
                 return BadRequest(ex.Message);
             }
+        }
 
-            return Ok();
+        [HttpDelete("delete")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete([FromQuery] Guid id, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await _accountService.Delete(id, cancellationToken) ? Ok() : BadRequest();
+            }
+            catch (AccountRegisterException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
