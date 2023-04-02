@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entities
 {
-    public enum RoleValues
+    public enum RoleValue
     {
         User,
         Admin

@@ -37,6 +37,6 @@ namespace AdminApi.Models
         public string PasswordConfirmation { get; set; }
 
         [Required]
-        public RoleValues Role { get; set; }
+        public RoleValue Role { get; set; }
     }
 }

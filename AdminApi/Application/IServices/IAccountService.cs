@@ -8,5 +8,6 @@ namespace Application.IServices
         Task<string> Login(string username, string password, CancellationToken cancellationToken = default);
         Task<bool> Register(User user, string password, string role, CancellationToken cancellationToken = default);
         Task<bool> Delete(Guid id, CancellationToken cancellationToken = default);
+        Task<ICollection<object>> GetAllUsersByRole(RoleValue role, CancellationToken cancellation = default);
     }
 }

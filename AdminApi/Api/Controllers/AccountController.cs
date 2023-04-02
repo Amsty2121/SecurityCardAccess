@@ -64,5 +64,20 @@ namespace AdminApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("users")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete([FromQuery] RoleValue role, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                
+                return Ok(await _accountService.GetAllUsersByRole(role, cancellationToken));
+            }
+            catch (AccountRegisterException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

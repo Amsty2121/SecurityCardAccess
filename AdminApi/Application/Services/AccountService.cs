@@ -2,9 +2,11 @@
 using Application.IServices;
 using Domain.Entities;
 using Domain.Exceptions;
+using LanguageExt;
 using LanguageExt.Common;
 using LanguageExt.Pipes;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -113,6 +115,16 @@ namespace Application.Services
             }
 
             return _userManager.DeleteAsync(user).Result.Succeeded;
+        }
+
+        public async Task<ICollection<object>> GetAllUsersByRole(RoleValue role, CancellationToken cancellation = default)
+        {
+            return _userManager.GetUsersInRoleAsync(role.ToString()).Result.Select(x => new {
+                                                                                    Username = x.UserName,
+                                                                                    UserRole = role.ToString(),
+                                                                                    Department = x.Department
+                                                                                            }).ToList<object>();
+
         }
     }
 }
