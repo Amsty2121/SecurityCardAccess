@@ -1,1 +1,42 @@
-<div class="wrapper"></div>
+<div class="wrapper">
+  <div class="login-wrapper slideInDown">
+    <div class="heading">
+      <mat-icon svgIcon="padlock" color="primary"></mat-icon>
+      <div class="text">
+        <span class="title">Login</span>
+        <span class="subtitle">Please enter your credentials to login</span>
+      </div>
+    </div>
+    <form class="content" [formGroup]="loginForm">
+      <div class="control">
+        <span class="label">Username</span>
+        <mat-form-field appearance="outline" class="form-truncated">
+          <input
+            matInput
+            formControlName="username"
+            placeholder="example@mail.com"
+          />
+          <mat-error *ngIf="loginForm.controls.username.errors?.required"
+            >Username is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="control">
+        <span class="label">Password</span>
+        <mat-form-field appearance="outline" class="form-truncated">
+          <input
+            matInput
+            formControlName="password"
+            placeholder="********************"
+          />
+          <mat-error *ngIf="loginForm.controls.password.errors?.required"
+            >Password is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="button" (click)="login()">
+        Login
+      </button>
+    </form>
+  </div>
+</div>

@@ -5,7 +5,15 @@ body,
 main {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.form-truncated {
+  &.mat-mdc-form-field .mat-mdc-text-field-wrapper .mat-mdc-form-field-infix {
+    padding: 0.5rem 0;
+    min-height: unset;
+  }
 }
