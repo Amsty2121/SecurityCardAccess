@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
 
 namespace Repository.Seed
 {
@@ -8,6 +7,9 @@ namespace Repository.Seed
     {
         public static async Task Seed(UserManager<User> userManager)
         {
+            if(!userManager.Users.Any())
+                return;
+
             var admins = new List<User>
                 {
                     new User()
@@ -19,9 +21,7 @@ namespace Repository.Seed
 
             foreach (var admin in admins)
             {
-                var userInsertion = await userManager.CreateAsync(admin, "Qwerty1!");
-
-                if (userInsertion.Succeeded)
+                if (userManager.CreateAsync(admin, "Qwerty1!").Result.Succeeded)
                 {
                     var result = await userManager.AddToRoleAsync(admin, "Admin");
                 }
@@ -38,9 +38,7 @@ namespace Repository.Seed
 
             foreach (var user in users)
             {
-                var userInsertion = await userManager.CreateAsync(user, "Qwerty1!");
-
-                if (userInsertion.Succeeded)
+                if (userManager.CreateAsync(user, "Qwerty1!").Result.Succeeded)
                 {
                     var result = await userManager.AddToRoleAsync(user, "User");
                 }

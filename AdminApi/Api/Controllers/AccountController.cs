@@ -79,5 +79,12 @@ namespace AdminApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("tokenVerify")]
+        [Authorize]
+        public IActionResult TokenVerify()
+        {
+            return Ok();
+        }
     }
 }

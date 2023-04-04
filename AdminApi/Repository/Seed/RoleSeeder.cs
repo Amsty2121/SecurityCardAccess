@@ -8,6 +8,9 @@ namespace Repository.Seed
     {
         public static async Task Seed(RoleManager<Role> roleManager)
         {
+            if (!roleManager.Roles.Any())
+                return;
+
             foreach (var roleName in new List<string> { "User", "Admin"  })
             {
                 if (!await roleManager.RoleExistsAsync(roleName))
