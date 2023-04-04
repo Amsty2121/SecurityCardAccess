@@ -63,6 +63,12 @@
           display: inline-block;
         }
       }
+
+      [matSuffix] {
+        @include mixins.icon-size(20px);
+        padding: 10px;
+        cursor: pointer;
+      }
     }
   }
 }

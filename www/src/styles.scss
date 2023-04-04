@@ -1,3 +1,4 @@
+@use "/src/variables" as vars;
 @import "/src/theme";
 
 html,
@@ -16,4 +17,10 @@ body {
     padding: 0.5rem 0;
     min-height: unset;
   }
+}
+
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #ff9800;
+  --mdc-snackbar-container-color: #32353e;
+  --mdc-snackbar-supporting-text-color: #e6e6e7;
 }

@@ -13,11 +13,14 @@
         <mat-form-field appearance="outline" class="form-truncated">
           <input
             matInput
-            formControlName="username"
+            formControlName="login"
             placeholder="example@mail.com"
           />
-          <mat-error *ngIf="loginForm.controls.username.errors?.required"
+          <mat-error *ngIf="loginForm.controls.login.errors?.required"
             >Username is required</mat-error
+          >
+          <mat-error *ngIf="loginForm.controls.login.errors?.email"
+            >Email addres is not valid</mat-error
           >
         </mat-form-field>
       </div>
@@ -28,7 +31,15 @@
             matInput
             formControlName="password"
             placeholder="********************"
+            [type]="inputType"
           />
+          <visibility-icon
+            *ngIf="loginForm.controls.password.value?.length"
+            @fadeIn
+            matSuffix
+            (mousedown)="inputType = 'text'"
+            (mouseup)="inputType = 'password'"
+          ></visibility-icon>
           <mat-error *ngIf="loginForm.controls.password.errors?.required"
             >Password is required</mat-error
           >
