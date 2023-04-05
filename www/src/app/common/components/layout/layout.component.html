@@ -1,6 +1,11 @@
 <div class="header">
-  <div class="app-name">
-    <span>SMART PASS</span>
+  <div class="drawer-header">
+    <div class="app-name">
+      <span>SMART PASS</span>
+    </div>
+    <button type="button" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
   <div class="toolbar">
     <span>{{ username }}</span>
@@ -9,4 +14,9 @@
     </button>
   </div>
 </div>
-<router-outlet></router-outlet>
+<mat-drawer-container class="sidenav-container">
+  <mat-drawer #drawer class="sidenav" mode="side" [opened]="true"></mat-drawer>
+  <div class="sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

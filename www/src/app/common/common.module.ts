@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './components/layout';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
     RouterModule,
     MatRippleModule,
+    MatSidenavModule,
   ],
   declarations: [LayoutComponent],
 })

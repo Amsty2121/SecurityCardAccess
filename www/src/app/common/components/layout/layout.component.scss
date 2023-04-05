@@ -13,18 +13,23 @@ $header-height: 60px;
   align-items: center;
   justify-content: space-between;
 
-  .app-name {
+  .drawer-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: $header-height;
-    background-color: vars.$color-primary;
 
-    span {
-      color: #fff;
-      letter-spacing: 4px;
-      font-size: 20px;
+    .app-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: $header-height;
+      background-color: vars.$color-primary;
+
+      span {
+        color: #fff;
+        letter-spacing: 4px;
+        font-size: 20px;
+      }
     }
   }
 
@@ -36,6 +41,32 @@ $header-height: 60px;
     span {
       display: inline-block;
       margin-right: 1rem;
+      color: vars.$color-tuna;
     }
+  }
+}
+
+.sidenav-container {
+  height: calc(100% - $header-height);
+
+  .sidenav-content {
+    height: 100%;
+    background-color: vars.$color-tuna;
+  }
+
+  .sidenav {
+    width: 200px;
+    padding: 20px;
+    background-color: vars.$color-shark;
+    border: 1px solid vars.$color-shark;
+  }
+}
+
+.mat-mdc-icon-button {
+  color: vars.$color-tuna;
+
+  &:hover {
+    color: vars.$color-primary;
+    transition: color 200ms ease-in;
   }
 }
