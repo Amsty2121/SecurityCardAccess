@@ -12,10 +12,12 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { fadeIn } from 'app/animations/fadeIn.animation';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { HttpStatusCode } from '@angular/common/http';
 import { AuthService, SnackbarService } from 'app/common/services';
 import Cookies from 'js-cookie';
+import { AUTH_TOKEN } from 'app/common/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -50,6 +52,10 @@ export class VisibilityIconComponent {}
   animations: [fadeIn],
 })
 export default class LoginComponent {
+  @HostListener('document:keydown.enter', ['$event']) onEnterHandler() {
+    this.login();
+  }
+
   inputType = 'password';
 
   loginForm = new FormGroup({
@@ -61,7 +67,8 @@ export default class LoginComponent {
     private _authService: AuthService,
     private _iconRegistry: MatIconRegistry,
     private _sanitizer: DomSanitizer,
-    private _sbs: SnackbarService
+    private _sbs: SnackbarService,
+    private _router: Router
   ) {
     this._iconRegistry.addSvgIcon(
       'padlock',
@@ -71,12 +78,18 @@ export default class LoginComponent {
 
   login() {
     this.loginForm.markAllAsTouched();
+
     if (this.loginForm.invalid) return;
+
     this._authService
       .login(this.loginForm.getRawValue())
       .pipe(
         catchError((err) => {
-          if (err.status === HttpStatusCode.BadRequest) {
+          if (
+            [HttpStatusCode.BadRequest, HttpStatusCode.Unauthorized].includes(
+              err.status
+            )
+          ) {
             this._sbs.displayMessage('Incorrect username and/or password');
           }
           return of(null);
@@ -84,7 +97,9 @@ export default class LoginComponent {
         filter(Boolean)
       )
       .subscribe((token: string) => {
-        Cookies.set('auth_token', token);
+        this._sbs.dismiss();
+        Cookies.set(AUTH_TOKEN, token, { expires: 30 });
+        this._router.navigate(['']);
       });
   }
 }

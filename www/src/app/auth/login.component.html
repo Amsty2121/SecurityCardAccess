@@ -9,7 +9,7 @@
     </div>
     <form class="content" [formGroup]="loginForm">
       <div class="control">
-        <span class="label">Username</span>
+        <span class="label">Email</span>
         <mat-form-field appearance="outline" class="form-truncated">
           <input
             matInput
@@ -17,7 +17,7 @@
             placeholder="example@mail.com"
           />
           <mat-error *ngIf="loginForm.controls.login.errors?.required"
-            >Username is required</mat-error
+            >Email is required</mat-error
           >
           <mat-error *ngIf="loginForm.controls.login.errors?.email"
             >Email addres is not valid</mat-error

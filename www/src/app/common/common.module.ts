@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { LayoutComponent } from './components/layout';
 
-@NgModule({})
+@NgModule({ declarations: [LayoutComponent] })
 export class AppCommonModule {}

@@ -19,6 +19,13 @@ export class ApiClient {
 
   constructor(private _http: HttpClient) {}
 
+  get(url: string, requestOptions?): Observable<any> {
+    return this._http.get(
+      this._buildUrl(url),
+      this._buildHttpOptions(requestOptions)
+    );
+  }
+
   post(url: string, body: any, requestOptions?): Observable<any> {
     return this._http.post(
       this._buildUrl(url),
