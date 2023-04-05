@@ -1,0 +1,41 @@
+@use "/src/variables" as vars;
+
+$header-height: 60px;
+
+:host {
+  user-select: none;
+}
+
+.header {
+  height: $header-height;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .app-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: $header-height;
+    background-color: vars.$color-primary;
+
+    span {
+      color: #fff;
+      letter-spacing: 4px;
+      font-size: 20px;
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+
+    span {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
+}

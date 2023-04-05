@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routing.module';
-import LoginComponent from './auth/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppCommonModule } from './common/common.module';
 import { JwtInterceptor } from './common/interceptors';
+import LoginComponent from './auth/login.component';
 
 @NgModule({
   declarations: [AppComponent],
