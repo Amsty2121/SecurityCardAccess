@@ -9,6 +9,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppCommonModule } from './common/common.module';
 import { JwtInterceptor } from './common/interceptors';
 import LoginComponent from './auth/login.component';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import LoginComponent from './auth/login.component';
     LoginComponent,
     MatSnackBarModule,
     AppCommonModule,
+    MatRippleModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

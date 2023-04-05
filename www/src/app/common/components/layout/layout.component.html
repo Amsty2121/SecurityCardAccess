@@ -15,7 +15,18 @@
   </div>
 </div>
 <mat-drawer-container class="sidenav-container">
-  <mat-drawer #drawer class="sidenav" mode="side" [opened]="true"></mat-drawer>
+  <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
+    <nav>
+      <a
+        matRipple
+        routerLink="/devices"
+        routerLinkActive="active"
+        draggable="false"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Devices</a
+      >
+    </nav>
+  </mat-drawer>
   <div class="sidenav-content">
     <router-outlet></router-outlet>
   </div>

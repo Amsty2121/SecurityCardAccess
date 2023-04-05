@@ -56,7 +56,7 @@ $header-height: 60px;
 
   .sidenav {
     width: 200px;
-    padding: 20px;
+    padding-top: 20px;
     background-color: vars.$color-shark;
     border: 1px solid vars.$color-shark;
   }
@@ -68,5 +68,20 @@ $header-height: 60px;
   &:hover {
     color: vars.$color-primary;
     transition: color 200ms ease-in;
+  }
+}
+
+nav a {
+  height: 40px;
+  font-size: 18px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  color: vars.$color-iron;
+  text-decoration: none;
+
+  &.active {
+    border-left: 6px solid vars.$color-primary;
   }
 }

@@ -6,9 +6,14 @@ import { authGuard } from './common/guards';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
     component: LayoutComponent,
     canActivate: [authGuard],
+    children: [
+      {
+        path: 'devices',
+        loadComponent: () => import('./devices/devices.component'),
+      },
+    ],
   },
   { path: 'auth', loadComponent: () => import('./auth/login.component') },
   { path: '**', redirectTo: '' },

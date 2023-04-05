@@ -25,3 +25,21 @@ body {
   --mdc-snackbar-container-color: #32353e;
   --mdc-snackbar-supporting-text-color: #e6e6e7;
 }
+
+.mat-mdc-table tr {
+  td,
+  .cdk-header-cell {
+    background-color: vars.$color-shark;
+    color: vars.$color-iron;
+  }
+}
+
+.mat-mdc-select-panel.mdc-menu-surface {
+  background-color: vars.$color-shark;
+  color: vars.$color-iron;
+}
+
+.mat-mdc-paginator-container {
+  background-color: vars.$color-shark;
+  color: vars.$color-iron;
+}

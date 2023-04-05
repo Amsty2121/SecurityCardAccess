@@ -1,0 +1,24 @@
+@use "/src/variables" as vars;
+
+.wrapper {
+  padding: 2rem 1.5rem;
+}
+
+.noData {
+  padding: 1rem;
+}
+
+.mat-mdc-form-field {
+  width: 300px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .mat-icon:hover {
+    cursor: pointer;
+    color: vars.$color-iron;
+  }
+}
