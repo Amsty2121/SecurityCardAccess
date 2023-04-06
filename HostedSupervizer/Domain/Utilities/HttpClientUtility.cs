@@ -12,10 +12,12 @@ namespace Domain.Utilities
     {
         private static readonly HttpClient _httpClient = new HttpClient();
 
-        public static async Task<HttpResponseMessage> SendJsonAsync(string? json, string url, string method)
+        public static async Task<HttpResponseMessage> SendJsonAsync(string? json, string url, string method, string token)
         {
             var httpMethod = new HttpMethod(method);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var request = new HttpRequestMessage(httpMethod, url)
             {

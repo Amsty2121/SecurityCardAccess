@@ -67,11 +67,10 @@ namespace AdminApi.Controllers
 
         [HttpGet("users")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete([FromQuery] RoleValue role, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> GetAll([FromQuery] RoleValue role, CancellationToken cancellationToken = default)
         {
             try
             {
-                
                 return Ok(await _accountService.GetAllUsersByRole(role, cancellationToken));
             }
             catch (AccountRegisterException ex)

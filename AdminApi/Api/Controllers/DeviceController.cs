@@ -65,7 +65,7 @@ namespace AdminApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetDeviceFull([FromQuery] Guid id, CancellationToken token = default)
+        public async Task<IActionResult> GetDeviceById([FromQuery] Guid id, CancellationToken token = default)
         {
             try
             {

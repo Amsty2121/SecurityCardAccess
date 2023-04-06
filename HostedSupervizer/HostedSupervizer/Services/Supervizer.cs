@@ -16,10 +16,12 @@ namespace HostedSupervizer.Services
 
         private Timer _timer;
         private readonly IAPIHostSettings _hostSettings;
+        private readonly AccountService _accountService;
 
-        public Supervizer(IAPIHostSettings hostSettings)
+        public Supervizer(IAPIHostSettings hostSettings, AccountService accountService)
         {
             _hostSettings = hostSettings;
+            _accountService = accountService;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -81,7 +83,7 @@ namespace HostedSupervizer.Services
             try
             {
                 var url = $"{receiver}{element.Value.OperationUrl}";
-                var result = HttpClientUtility.SendJsonAsync(JsonSerializer.Serialize(new { Id = session.Id }), url, element.Value.SyncType);
+                var result = HttpClientUtility.SendJsonAsync(JsonSerializer.Serialize(new { Id = session.Id }), url, element.Value.SyncType, _accountService.GetToken().Result);
             }
             catch (Exception ex)
             {

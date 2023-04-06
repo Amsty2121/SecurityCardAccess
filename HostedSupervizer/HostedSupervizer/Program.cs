@@ -1,4 +1,5 @@
 using HostedSupervizer.Constants;
+using HostedSupervizer.Extensions;
 using HostedSupervizer.Services;
 using HostedSupervizer.Settings;
 using Microsoft.Extensions.Options;
@@ -17,7 +18,11 @@ builder.Services.Configure<APIHostSettings>(builder.Configuration.GetSection(Set
 builder.Services.AddSingleton<IAPIHostSettings>(options =>
     options.GetRequiredService<IOptions<APIHostSettings>>().Value);
 builder.Services.AddSingleton<Supervizer>();
+builder.Services.AddSingleton<AccountService>();
 builder.Services.AddHostedService(options => options.GetService<Supervizer>());
+
+builder.Services.AddJwtAuthentication(
+    builder.Services.ConfigureAuthOptions(builder.Configuration));
 
 var app = builder.Build();
 
