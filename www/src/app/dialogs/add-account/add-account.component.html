@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Add Account</h1>
+<div mat-dialog-content>
+  <form [formGroup]="accountControls">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="username" />
+      <mat-error *ngIf="accountControls.controls.username.errors?.required"
+        >Username is required</mat-error
+      >
+      <mat-error *ngIf="accountControls.controls.username.errors?.email"
+        >Enter a valid email address</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="department" />
+      <mat-error *ngIf="accountControls.controls.department.errors?.required"
+        >Department is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let role of userRoles" [value]="role">{{
+          role
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="accountControls.controls.role.errors?.required"
+        >Role is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="accountControls.controls.password.errors?.required"
+        >Password is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Repeated Password</mat-label>
+      <input matInput type="password" formControlName="passwordConfirmation" />
+      <mat-error
+        *ngIf="accountControls.controls.passwordConfirmation.errors?.required"
+        >Password is required</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="add()">
+    Add
+  </button>
+</div>

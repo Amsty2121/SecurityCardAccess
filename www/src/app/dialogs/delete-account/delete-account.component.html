@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Deleting Account</h1>
+<div mat-dialog-content>
+  <span class="warn">The following account is being deleted!</span>
+  <div class="account">
+    <span><b>ID:</b> {{ data?.id }}</span>
+    <span><b>Username:</b> {{ data?.username }}</span>
+    <span><b>Department:</b> {{ data?.department }}</span>
+    <span><b>Role:</b> {{ data?.userRole }}</span>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="deleteAccount()">
+    Delete
+  </button>
+</div>

@@ -9,9 +9,9 @@ import {
 import { Device } from 'app/devices/devices.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { accessLevels } from 'app/common/models/access-levels';
 import { CommonModule } from '@angular/common';
 import { DevicesService, SnackbarService } from 'app/common/services';
+import { accessLevels } from 'app/common/models';
 
 @Component({
   standalone: true,

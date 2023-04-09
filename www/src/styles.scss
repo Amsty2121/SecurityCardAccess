@@ -54,3 +54,7 @@ body {
   background: vars.$color-primary;
   border-radius: 7px;
 }
+
+.mat-mdc-dialog-container.mdc-dialog .mat-mdc-dialog-surface {
+  background-color: vars.$color-tuna;
+}

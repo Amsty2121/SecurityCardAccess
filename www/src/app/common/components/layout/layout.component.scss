@@ -81,8 +81,10 @@ nav a {
   padding-left: 32px;
   color: vars.$color-iron;
   text-decoration: none;
+  margin-left: 6px;
 
   &.active {
+    margin-left: 0;
     border-left: 6px solid vars.$color-primary;
   }
 }

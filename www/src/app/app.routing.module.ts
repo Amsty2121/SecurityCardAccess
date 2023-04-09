@@ -13,6 +13,10 @@ const routes: Routes = [
         path: 'devices',
         loadComponent: () => import('./devices/devices.component'),
       },
+      {
+        path: 'accounts',
+        loadComponent: () => import('./accounts/accounts.component'),
+      },
     ],
   },
   { path: 'auth', loadComponent: () => import('./auth/login.component') },

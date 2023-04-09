@@ -1,1 +1,2 @@
-export { AccessLevel } from './access-levels';
+export * from './access-levels';
+export * from './user-role';

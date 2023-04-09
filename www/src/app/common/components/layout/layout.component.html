@@ -19,6 +19,16 @@
     <nav>
       <a
         matRipple
+        routerLink="/accounts"
+        routerLinkActive="active"
+        draggable="false"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Accounts</a
+      >
+    </nav>
+    <nav>
+      <a
+        matRipple
         routerLink="/devices"
         routerLinkActive="active"
         draggable="false"

@@ -10,8 +10,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { AccessLevel } from 'app/common/models';
-import { accessLevels } from 'app/common/models/access-levels';
+import { AccessLevel, accessLevels } from 'app/common/models';
 import { CommonModule } from '@angular/common';
 import { DevicesService, SnackbarService } from 'app/common/services';
 import { Device } from 'app/devices/devices.component';
