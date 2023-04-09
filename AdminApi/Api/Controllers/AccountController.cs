@@ -69,11 +69,11 @@ namespace AdminApi.Controllers
 
         [HttpGet("users")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAll([FromQuery] RoleValue role, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> GetAllByRole([FromQuery] RoleValue? role, CancellationToken cancellationToken = default)
         {
             try
             {
-                return Ok(await _accountService.GetAllUsersByRole(role, cancellationToken));
+                return Ok(await _accountService.GetAllUsersByRole( string.IsNullOrWhiteSpace(role.ToString()) ? "": role.ToString(), cancellationToken));
             }
             catch (AccountRegisterException ex)
             {

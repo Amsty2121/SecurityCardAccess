@@ -2,6 +2,7 @@
 using Application.IServices;
 using Domain.Entities;
 using Domain.Exceptions;
+using IdentityServer4.Extensions;
 using LanguageExt;
 using LanguageExt.Common;
 using LanguageExt.Pipes;
@@ -119,9 +120,24 @@ namespace Application.Services
             return _userManager.DeleteAsync(user).Result.Succeeded;
         }
 
-        public async Task<ICollection<object>> GetAllUsersByRole(RoleValue role, CancellationToken cancellation = default)
+        public async Task<ICollection<object>> GetAllUsersByRole(string role, CancellationToken cancellation = default)
         {
-            return _userManager.GetUsersInRoleAsync(role.ToString()).Result.Select(x => new {
+            return !string.IsNullOrWhiteSpace(role) ? _userManager.GetUsersInRoleAsync(role)
+                .Result.Select(x => new {   Id = x.Id,
+				                            Username = x.UserName,
+				                            UserRole = role,
+				                            Department = x.Department
+			                            }).ToList<object>()
+
+                : _userManager.Users.ToList().Select(x => new { Id = x.Id,
+					                                            Username = x.UserName,
+					                                            UserRole = _userManager.GetRolesAsync(x).Result.FirstOrDefault(),
+					                                            Department = x.Department
+				}).ToList<object>();
+
+
+
+			return _userManager.GetUsersInRoleAsync(role.ToString()).Result.Select(x => new {
                                                                                     Username = x.UserName,
                                                                                     UserRole = role.ToString(),
                                                                                     Department = x.Department
