@@ -10,7 +10,7 @@ namespace AdminApi.Models
 
         [Required]
         [StringLength(30, MinimumLength = 8)]
-        [RegularExpression(pattern: @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
+        [RegularExpression(pattern: @"^[\w!#$%&*+/=?{|}~^-]+(?:\.[\w!#$%&*+/=?{|}~^-]+)*@(?:[A-z0-9-]+\.)+[A-z]{2,6}$",
         ErrorMessage = "Invalid email address.")]
         public string Username { get; set; }
 

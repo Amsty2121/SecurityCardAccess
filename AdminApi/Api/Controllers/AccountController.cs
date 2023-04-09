@@ -38,7 +38,7 @@ namespace AdminApi.Controllers
 
         [HttpPost("register")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Register([FromQuery] RegisterRequest registerRequest, CancellationToken cancellationToken=default)
+        public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest, CancellationToken cancellationToken=default)
         {
             var user = _mapper.Map<User>(registerRequest);
             try
