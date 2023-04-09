@@ -12,8 +12,6 @@ namespace HostedSupervizer.Services
         private readonly ConcurrentDictionary<Guid, SyncEntity> _storageQueue
             = new ConcurrentDictionary<Guid, SyncEntity>();
 
-        private object m_Locker = new object();
-
         private Timer _timer;
         private readonly IAPIHostSettings _hostSettings;
         private readonly AccountService _accountService;
@@ -40,8 +38,6 @@ namespace HostedSupervizer.Services
 
         public bool Synk(SyncEntity data)
         {
-            SyncEntity syncEntity = null;
-
             var session = JsonSerializer.Deserialize<Session>(data.JsonData);
 
             if(session.UserId != new Guid("00000000-0000-0000-0000-000000000000"))
@@ -49,7 +45,7 @@ namespace HostedSupervizer.Services
                 return _storageQueue.TryAdd(session.Id, data);
             }
 
-            return _storageQueue.TryRemove(session.Id, out syncEntity);
+            return _storageQueue.TryRemove(session.Id, out _);
         }
 
         private async void DoSendWork(object state)
@@ -58,8 +54,6 @@ namespace HostedSupervizer.Services
             {
                 foreach (var element in _storageQueue)
                 {
-                    SyncEntity syncEntity = null;
-
                     var session = JsonSerializer.Deserialize<Session>(element.Value.JsonData);
 
                     if (session.UsedUtcDate == null && session.EndUtcDate > DateTime.UtcNow)
@@ -67,7 +61,7 @@ namespace HostedSupervizer.Services
                         continue;
                     }
 
-                    var isPresent = _storageQueue.TryRemove(element.Key, out syncEntity);
+                    var isPresent = _storageQueue.TryRemove(element.Key, out _);
 
                     CloseSession(element);
                 }
