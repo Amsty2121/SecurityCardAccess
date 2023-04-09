@@ -104,7 +104,7 @@ namespace Application.Services
 
 			scope.Complete();
 			return creationResult.Succeeded && roleAddingResult.Succeeded ? 
-                new { Id = resultUser.Id, UserName = resultUser.UserName, UserRole = role, Department = user.Department }
+                new { Id = resultUser.Id, Username = resultUser.UserName, UserRole = role, Department = user.Department }
                  : null;
         }
 
