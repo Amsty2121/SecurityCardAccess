@@ -51,7 +51,7 @@ namespace AdminApi.Controllers
             }
         }
 
-        [HttpPut("change-access")]
+        [HttpPatch("change-access")]
         public async Task<IActionResult> ModifyDeviceAccessLevel([FromQuery] ModifyDeviceLevelRequest request, CancellationToken token = default)
         {
             try
