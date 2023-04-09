@@ -22,11 +22,12 @@ namespace Application.Services
             _deviceRepository = deviceRepository;
         }
 
-        public async Task<Result<bool>> Add(Device device, CancellationToken cancellationToken = default)
+        public async Task<Result<Device>> Add(Device device, CancellationToken cancellationToken = default)
         {
+            device.Id = Guid.NewGuid();
             await _deviceRepository.Add(device, cancellationToken);
             
-            return new Result<bool>(true);
+            return new Result<Device>(device);
         }
 
         public async Task<Result<IEnumerable<Device>>> GetAll(CancellationToken cancellationToken = default) 

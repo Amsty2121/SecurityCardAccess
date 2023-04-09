@@ -30,7 +30,7 @@ namespace AdminApi.Controllers
         {
             try
             {
-                return (await _deviceService.Add(_mapper.Map<Device>(request), token)).ToOk(c => true);
+                return (await _deviceService.Add(_mapper.Map<Device>(request), token)).ToOk(c => c);
             }
             catch (Exception)
             {
