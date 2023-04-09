@@ -6,19 +6,7 @@ namespace AdminApi.Models
     public class RegisterRequest
     {
         [Required]
-        [StringLength(22, MinimumLength = 3)]
-        [RegularExpression(pattern: @"[A-Z][a-z]+(\s[A-Z][a-z]+)?",
-        ErrorMessage = "First Name must be no more than 2 words of alphabetic characters and the first letters must be uppercase.")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [StringLength(22, MinimumLength = 3)]
-        [RegularExpression(pattern: @"[A-Z][a-z]+(\s[A-Z][a-z]+)?",
-        ErrorMessage = "Last name must be no more than 2 words of alphabetic characters and the first letters must be uppercase.")]
-        public string LastName { get; set; }
-
-        [Required]
-        public string Company { get; set; }
+        public string Department { get; set; }
 
         [Required]
         [StringLength(30, MinimumLength = 8)]

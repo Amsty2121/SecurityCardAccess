@@ -78,7 +78,7 @@ namespace Application.Services
             return encodedToken;
         }
 
-        public async Task<bool> Register(User user, string password, string role, CancellationToken cancellationToken = default)
+        public async Task<object?> Register(User user, string password, string role, CancellationToken cancellationToken = default)
         {
             using var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
@@ -99,10 +99,12 @@ namespace Application.Services
                 var errorMessage = string.Join('\n', roleAddingResult.Errors.Select(x => x.Description).ToArray());
                 throw new AccountRegisterException(errorMessage);
             }
+            var resultUser = _userManager.FindByNameAsync(user.UserName).Result;
 
-            return creationResult.Succeeded && roleAddingResult.Succeeded;
 
-            //var userResult = await _userManager.FindByNameAsync(user.UserName);
+			return creationResult.Succeeded && roleAddingResult.Succeeded ? 
+                new { Id = resultUser.Id, UserName = resultUser.UserName, UserRole = role, Department = user.Department }
+                 : null;
         }
 
         public async Task<bool> Delete(Guid id, CancellationToken cancellationToken = default)

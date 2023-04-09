@@ -43,7 +43,9 @@ namespace AdminApi.Controllers
             var user = _mapper.Map<User>(registerRequest);
             try
             {
-                return await _accountService.Register(user, registerRequest.Password, registerRequest.Role.ToString(), cancellationToken) ? Ok() : BadRequest();
+                var result = await _accountService.Register(user, registerRequest.Password, registerRequest.Role.ToString(), cancellationToken);
+
+				return result != null ? Ok( result ) : BadRequest();
             }
             catch (AccountRegisterException ex)
             {
