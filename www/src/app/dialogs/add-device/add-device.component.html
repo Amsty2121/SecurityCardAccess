@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add Device</h1>
+<div mat-dialog-content>
+  <form [formGroup]="deviceControls">
+    <mat-form-field appearance="outline">
+      <mat-label>Access Level</mat-label>
+      <mat-select formControlName="accessLevel">
+        <mat-option *ngFor="let level of accessLevels" [value]="level">{{
+          level
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="deviceControls.controls.accessLevel.errors?.required"
+        >Access Level is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error *ngIf="deviceControls.controls.description.errors?.required"
+        >Device description is required</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="add()">
+    Add
+  </button>
+</div>

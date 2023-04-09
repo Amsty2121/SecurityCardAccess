@@ -1,0 +1,31 @@
+@use "/src/variables" as vars;
+
+.mat-mdc-button {
+  font-weight: 500;
+}
+
+.mat-mdc-dialog-content {
+  padding: 0 1.5rem;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: flex-end;
+}
+
+.warn {
+  color: red;
+  font-weight: 700;
+}
+
+.device {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  gap: 10px;
+  max-width: 350px;
+  color: #fff;
+
+  b {
+    color: vars.$color-primary;
+  }
+}

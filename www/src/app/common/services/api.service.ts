@@ -34,6 +34,21 @@ export class ApiClient {
     );
   }
 
+  patch(url: string, body: any, requestOptions?): Observable<any> {
+    return this._http.patch(
+      this._buildUrl(url),
+      body,
+      this._buildHttpOptions(requestOptions)
+    );
+  }
+
+  delete(url: string, requestOptions?): Observable<any> {
+    return this._http.delete(
+      this._buildUrl(url),
+      this._buildHttpOptions(requestOptions)
+    );
+  }
+
   private _buildUrl(urlChunk: string): string {
     return `${env.apiHost}${urlChunk}`;
   }

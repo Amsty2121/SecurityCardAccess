@@ -2,6 +2,20 @@
 
 .wrapper {
   padding: 2rem 1.5rem;
+  overflow-x: auto;
+}
+
+.title {
+  color: vars.$color-primary;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-bottom: 2rem;
+}
+
+table {
+  background-color: vars.$color-shark;
 }
 
 .noData {
@@ -20,5 +34,13 @@
   .mat-icon:hover {
     cursor: pointer;
     color: vars.$color-iron;
+  }
+}
+
+td,
+th {
+  &:last-of-type {
+    width: 130px;
+    text-align: center;
   }
 }

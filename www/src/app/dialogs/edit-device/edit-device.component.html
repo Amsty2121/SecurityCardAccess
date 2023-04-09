@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Device Access Level</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Access Level</mat-label>
+      <mat-select [formControl]="accessLevel">
+        <mat-option *ngFor="let level of accessLevels" [value]="level">{{
+          level
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="edit()">
+    Edit
+  </button>
+</div>

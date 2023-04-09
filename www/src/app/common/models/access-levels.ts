@@ -5,3 +5,12 @@ export type AccessLevel =
   | 'Administrator'
   | 'God'
   | 'Blocked';
+
+export const accessLevels = [
+  'Guest',
+  'Employee',
+  'TechnicalEmployee',
+  'Administrator',
+  'God',
+  'Blocked',
+];

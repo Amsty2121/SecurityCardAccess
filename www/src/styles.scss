@@ -43,3 +43,14 @@ body {
   background-color: vars.$color-shark;
   color: vars.$color-iron;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background: vars.$color-tuna;
+}
+
+::-webkit-scrollbar-thumb {
+  background: vars.$color-primary;
+  border-radius: 7px;
+}
