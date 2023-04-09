@@ -87,7 +87,7 @@ namespace Application.Services
 
             var roleAddingResult = await _userManager.AddToRoleAsync(user, role);
 
-            scope.Complete();
+            
 
             if (!creationResult.Succeeded)
             {
@@ -102,7 +102,7 @@ namespace Application.Services
             }
             var resultUser = _userManager.FindByNameAsync(user.UserName).Result;
 
-
+			scope.Complete();
 			return creationResult.Succeeded && roleAddingResult.Succeeded ? 
                 new { Id = resultUser.Id, UserName = resultUser.UserName, UserRole = role, Department = user.Department }
                  : null;
