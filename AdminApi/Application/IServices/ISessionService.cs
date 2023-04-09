@@ -19,6 +19,5 @@ namespace Application.IServices
 
         //Supravizer
         Task<Result<bool>> CloseSession(Guid id, CancellationToken cancellationToken = default); // Close session
-
     }
 }

@@ -18,6 +18,7 @@ namespace Repository.Interfaces
         Task Update(T entity, CancellationToken cancellationToken = default);
 
         Task Remove(T entity, CancellationToken cancellationToken = default);
+        
         Task<bool> IsIdPresent(Guid id, CancellationToken cancellationToken = default);
 
         Task<IEnumerable<T>> GetAll(CancellationToken cancellationToken = default);

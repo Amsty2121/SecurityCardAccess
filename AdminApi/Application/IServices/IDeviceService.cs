@@ -13,9 +13,5 @@ namespace Application.IServices
         Task<Result<bool>> ModifyAccessLevel(Device deviceToUpdate, CancellationToken cancellationToken = default);
         Task<Result<bool>> Remove(Guid id, CancellationToken cancellationToken = default);
         Task<Result<PaginatedResult<Device>>> GetPagedData(PagedRequest request, CancellationToken cancellationToken = default);
-
-        //Task<Result<bool>> Update(Device deviceToUpdate, CancellationToken cancellationToken = default);
-
-
     }
 }

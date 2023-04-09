@@ -87,12 +87,6 @@ builder.Services.AddSwaggerGen(swagger =>
             Array.Empty<string>()
         }
     });
-    
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //var xmlFilePath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //swagger.IncludeXmlComments(xmlFilePath);
-
-    //swagger.ExampleFilters();
 });
 
 var app = builder.Build();

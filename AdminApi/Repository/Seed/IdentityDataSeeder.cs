@@ -7,7 +7,7 @@ namespace Repository.Seed
     {
         public static async Task Seed(UserManager<User> userManager)
         {
-            if(!userManager.Users.Any())
+            if(userManager.Users.Any())
                 return;
 
             var admins = new List<User>
