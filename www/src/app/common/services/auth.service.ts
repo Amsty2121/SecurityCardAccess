@@ -32,6 +32,7 @@ export class AuthService {
   }
 
   username() {
-    return jwt_decode(Cookies.get(AUTH_TOKEN));
+    const token = Cookies.get(AUTH_TOKEN);
+    return token ? jwt_decode(Cookies.get(AUTH_TOKEN)) : '';
   }
 }

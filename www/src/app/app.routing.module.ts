@@ -17,6 +17,10 @@ const routes: Routes = [
         path: 'accounts',
         loadComponent: () => import('./accounts/accounts.component'),
       },
+      {
+        path: 'access-cards',
+        loadComponent: () => import('./access-cards/access-cards.component'),
+      },
     ],
   },
   { path: 'auth', loadComponent: () => import('./auth/login.component') },

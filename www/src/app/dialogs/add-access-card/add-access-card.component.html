@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Add Access Card</h1>
+<div mat-dialog-content>
+  <form [formGroup]="cardsControls">
+    <mat-form-field appearance="outline">
+      <mat-label>Account ID</mat-label>
+      <mat-select formControlName="userId">
+        <mat-option *ngFor="let user of _users" [value]="user.id">
+          {{ user.id }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="cardsControls.controls.userId.errors?.required"
+        >Account ID is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Access Level</mat-label>
+      <mat-select formControlName="accessLevel">
+        <mat-option *ngFor="let level of accessLevels" [value]="level">{{
+          level
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="cardsControls.controls.accessLevel.errors?.required"
+        >Access Level is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Pass Code</mat-label>
+      <textarea matInput formControlName="passCode"></textarea>
+      <mat-error *ngIf="cardsControls.controls.passCode.errors?.required"
+        >Pass Code is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error *ngIf="cardsControls.controls.description.errors?.required"
+        >Description is required</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="add()">
+    Add
+  </button>
+</div>

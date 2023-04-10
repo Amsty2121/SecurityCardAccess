@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Deleting Access Card</h1>
+<div mat-dialog-content>
+  <span class="warn">The following access card is being deleted!</span>
+  <div class="card">
+    <span><b>User ID:</b> {{ data?.userId }}</span>
+    <span><b>Access Level:</b> {{ data?.accessLevel }}</span>
+    <span><b>Pass Code:</b> {{ data?.passCode }}</span>
+    <span><b>Description:</b> {{ data?.description }}</span>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="deleteCard()">
+    Delete
+  </button>
+</div>
