@@ -18,22 +18,22 @@ namespace Application.Services
             _sessionRepository = sessionRepository;
         }
 
-        public async Task<Result<bool>> Add(Session sessionToActivate, CancellationToken cancellationToken = default)
+        public async Task<Result<Session>> Add(Session session, CancellationToken cancellationToken = default)
         {
-            if (IsTheSameSessionActive(sessionToActivate, cancellationToken))
+            if (IsTheSameSessionActive(session, cancellationToken))
             {
-                return new Result<bool>(new SessionIsAlreadyActiveException("Session is already active"));
+                return new Result<Session>(new SessionIsAlreadyActiveException("Session is already active"));
             }
-
-            sessionToActivate.StartUtcDate = DateTime.UtcNow;
+            session.Id = Guid.NewGuid();
+            session.StartUtcDate = DateTime.UtcNow;
             //sessionToActivate.EndUtcDate = DateTime.UtcNow + TimeSpan.FromMinutes(5);
-            sessionToActivate.EndUtcDate = DateTime.UtcNow + TimeSpan.FromSeconds(60);
-            sessionToActivate.SessionStatus = SessionStatus.Active;
-            sessionToActivate.UsedUtcDate = null;
+            session.EndUtcDate = DateTime.UtcNow + TimeSpan.FromSeconds(60);
+            session.SessionStatus = SessionStatus.Active;
+            session.UsedUtcDate = null;
 
-            await _sessionRepository.Add(sessionToActivate, cancellationToken);
+            await _sessionRepository.Add(session, cancellationToken);
 
-            return new Result<bool>(true);
+            return new Result<Session>(session);
         }
 
         public async Task<Result<IEnumerable<Session>>> GetAll(CancellationToken cancellationToken = default)

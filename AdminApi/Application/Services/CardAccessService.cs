@@ -22,14 +22,12 @@ namespace Application.Services
 
         public async Task<Result<AccessCard>> Add(AccessCard accessCard, CancellationToken cancellationToken = default)
         {
-            var guid = Guid.NewGuid();
-
             if(await IsUserValid(accessCard.UserId))
             {
                 return new Result<AccessCard>(new AccountNotFoundException("Account not found"));
             }
 
-            accessCard.Id = guid;   
+            accessCard.Id = Guid.NewGuid();   
             await _cardRepository.Add(accessCard, cancellationToken);
 
             return new Result<AccessCard>(accessCard);

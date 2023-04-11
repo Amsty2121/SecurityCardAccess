@@ -6,9 +6,6 @@ namespace AdminApi.Models
     public class GenerateSessionRequestByAdminWithDevice
     {
         [Required]
-        public Guid UserId { get; set; }
-
-        [Required]
         public Guid AccessCardId { get; set; }
 
         [Required]

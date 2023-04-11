@@ -19,7 +19,8 @@ namespace AdminApi.Mappings
 
             CreateMap<GenerateSessionRequestByAdminWithoutDevice, Session>()
                 .ForMember(t => t.Id, option => option.Ignore())
-                .ForMember(t => t.DeviceId, option => option.Ignore())
+				.ForMember(t => t.UserId, option => option.Ignore())
+				.ForMember(t => t.DeviceId, option => option.Ignore())
                 .ForMember(t => t.SessionStatus, option => option.Ignore())
                 .ForMember(t => t.EndUtcDate, option => option.Ignore())
                 .ForMember(t => t.StartUtcDate, option => option.Ignore())
@@ -27,7 +28,8 @@ namespace AdminApi.Mappings
 
             CreateMap<GenerateSessionRequestByAdminWithDevice, Session>()
                 .ForMember(t => t.Id, option => option.Ignore())
-                .ForMember(t => t.SessionStatus, option => option.Ignore())
+				.ForMember(t => t.UserId, option => option.Ignore())
+				.ForMember(t => t.SessionStatus, option => option.Ignore())
                 .ForMember(t => t.EndUtcDate, option => option.Ignore())
                 .ForMember(t => t.StartUtcDate, option => option.Ignore())
                 .ForMember(t => t.UsedUtcDate, option => option.Ignore());

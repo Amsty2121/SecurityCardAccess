@@ -1,14 +1,13 @@
 ﻿using Domain.Entities;
 using Domain.Models.PagedRequest;
 using LanguageExt.Common;
-using System.Linq.Dynamic.Core;
 
 namespace Application.IServices
 {
-    public interface ISessionService
+	public interface ISessionService
     {
         //User, Admin
-        Task<Result<bool>> Add(Session sessionToActivate, CancellationToken cancellationToken = default); // Open session
+        Task<Result<Session>> Add(Session sessionToActivate, CancellationToken cancellationToken = default); // Open session
         Task<Result<bool>> Use(Guid id, CancellationToken cancellationToken = default); // Activate session
 
         //Admin
