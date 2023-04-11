@@ -48,6 +48,14 @@
           <button
             mat-icon-button
             color="primary"
+            (click)="editCardAccessLevel(row)"
+            matTooltip="Change access level"
+          >
+            <mat-icon>settings</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="primary"
             matTooltip="Delete Access Card"
             (click)="deleteCard(row)"
           >

@@ -132,4 +132,32 @@ export default class AccessCardsComponent
           })
       );
   }
+
+  editCardAccessLevel(card: AccessCard) {
+    this._lazyDialog
+      .openDialog(
+        import('app/dialogs/edit-access-card/edit-access-card.component'),
+        {
+          data: card,
+        }
+      )
+      .then((ref) =>
+        ref
+          .afterClosed()
+          .pipe(takeUntil(this.destroy$))
+          .subscribe((changedCard: AccessCard) => {
+            if (!changedCard) return;
+
+            // mutate changed card
+            this.dataSource.data[
+              this.dataSource.data.findIndex(
+                (card) => card.id === changedCard.id
+              )
+            ] = changedCard;
+
+            // trigger table change
+            this.dataSource.data = this.dataSource.data;
+          })
+      );
+  }
 }
