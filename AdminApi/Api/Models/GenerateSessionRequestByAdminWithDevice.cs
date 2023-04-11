@@ -8,7 +8,6 @@ namespace AdminApi.Models
         [Required]
         public Guid AccessCardId { get; set; }
 
-        [Required]
         public Guid DeviceId { get; set; }
     }
 }
