@@ -32,7 +32,7 @@ namespace AdminApi.Controllers
         {
             try
             {
-                return (await _cardAccessService.Add(_mapper.Map<AccessCard>(request), token)).ToOk(c => true);
+                return (await _cardAccessService.Add(_mapper.Map<AccessCard>(request), token)).ToOk(c => c);
             }
             catch (Exception)
             {
