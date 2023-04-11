@@ -42,7 +42,7 @@ namespace AdminApi.Controllers
                     _syncService.AddSession(session);
                 }
 
-                return result.ToOk(c => true);
+                return result.ToOk(c => c);
             }
             catch (Exception)
             {
@@ -66,7 +66,7 @@ namespace AdminApi.Controllers
                     _syncService.AddSession(session);
                 }
 
-                return result.ToOk(c => true);
+                return result.ToOk(c => c);
             }
             catch (Exception)
             {
