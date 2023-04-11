@@ -21,6 +21,10 @@ const routes: Routes = [
         path: 'access-cards',
         loadComponent: () => import('./access-cards/access-cards.component'),
       },
+      {
+        path: 'sessions',
+        loadComponent: () => import('./sessions/sessions.component'),
+      },
     ],
   },
   { path: 'auth', loadComponent: () => import('./auth/login.component') },

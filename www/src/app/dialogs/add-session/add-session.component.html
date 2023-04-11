@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Add Session</h1>
+<div mat-dialog-content>
+  <form [formGroup]="sessionControl">
+    <mat-form-field appearance="outline">
+      <mat-label>Access Card Id</mat-label>
+      <mat-select formControlName="accessCardId">
+        <mat-option *ngFor="let card of data.cards" [value]="card.id">{{
+          card.id
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="sessionControl.controls.accessCardId.errors?.required"
+        >Access Level is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Device ID</mat-label>
+      <mat-select formControlName="deviceId">
+        <mat-option *ngFor="let device of data.devices" [value]="device.id">{{
+          device.id
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="add()">
+    Add
+  </button>
+</div>

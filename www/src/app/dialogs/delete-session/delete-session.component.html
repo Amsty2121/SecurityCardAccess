@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Deleting Session</h1>
+<div mat-dialog-content>
+  <span class="warn">The following session is being deleted!</span>
+  <div class="session">
+    <span><b>ID:</b> {{ data?.id }}</span>
+    <span><b>User ID:</b> {{ data?.userId }}</span>
+    <span><b>Access Card ID:</b> {{ data?.accessCardId }}</span>
+    <span><b>Device ID:</b> {{ data?.deviceId }}</span>
+    <span><b>Session Status:</b> {{ data?.sessionStatus }}</span>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button color="primary" cdkFocusInitial (click)="deleteSession()">
+    Delete
+  </button>
+</div>
