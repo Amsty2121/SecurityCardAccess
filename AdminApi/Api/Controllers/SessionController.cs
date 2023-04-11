@@ -132,9 +132,9 @@ namespace AdminApi.Controllers
             }
         }
 
-        [HttpPost("close")]
+        [HttpGet("close")]
         [Authorize(Roles = "Admin, Supervizer")]
-        public async Task<IActionResult> CloseSession([FromBody] CloseSessionRequestBySessionId request,
+        public async Task<IActionResult> CloseSession([FromQuery] CloseSessionRequestBySessionId request,
                                                       CancellationToken cancellationToken = default)
         {
             try

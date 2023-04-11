@@ -24,7 +24,7 @@ namespace Application.Services
             var json = JsonSerializer.Serialize(new SyncEntity
             {
                 JsonData = JsonSerializer.Serialize(session),
-                SyncType = "POST",
+                SyncType = "GET",
                 Id = session.Id,
                 LastChangeAt = DateTime.UtcNow,
                 Origin = _origin + "/api",
@@ -39,7 +39,7 @@ namespace Application.Services
             var json = JsonSerializer.Serialize(new SyncEntity
             {
                 JsonData = JsonSerializer.Serialize(new { Id = id }),
-                SyncType = "POST",
+                SyncType = "GET",
                 Id = id,
                 LastChangeAt = DateTime.UtcNow,
                 Origin = _origin + "/api",
@@ -52,7 +52,7 @@ namespace Application.Services
             var json = JsonSerializer.Serialize(new SyncEntity
             {
                 JsonData = JsonSerializer.Serialize(new { Id = id }),
-                SyncType = "POST",
+                SyncType = "GET",
                 Id = id,
                 LastChangeAt = DateTime.UtcNow,
                 Origin = _origin + "/api",
