@@ -2,22 +2,15 @@
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Models.PagedRequest;
-using LanguageExt.ClassInstances;
 using LanguageExt.Common;
 using Microsoft.AspNetCore.Identity;
 using Repository;
 using Repository.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class CardAccessService : ICardAccessService
+	public class CardAccessService : ICardAccessService
     {
         private readonly IGenericRepository<SessionContext, AccessCard> _cardRepository;
         private readonly UserManager<User> _userManager;
@@ -27,16 +20,19 @@ namespace Application.Services
             _userManager = userManager;
         }
 
-        public async Task<Result<bool>> Add(AccessCard accessCard, CancellationToken cancellationToken = default)
+        public async Task<Result<AccessCard>> Add(AccessCard accessCard, CancellationToken cancellationToken = default)
         {
+            var guid = Guid.NewGuid();
+
             if(await IsUserValid(accessCard.UserId))
             {
-                return new Result<bool>(new AccountNotFoundException("Account not found"));
+                return new Result<AccessCard>(new AccountNotFoundException("Account not found"));
             }
 
+            accessCard.Id = guid;   
             await _cardRepository.Add(accessCard, cancellationToken);
 
-            return new Result<bool>(true);
+            return new Result<AccessCard>(accessCard);
         }
 
         public async Task<Result<IEnumerable<AccessCard>>> GetAll(CancellationToken cancellationToken = default)

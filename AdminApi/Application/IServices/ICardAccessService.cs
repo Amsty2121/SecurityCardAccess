@@ -7,7 +7,7 @@ namespace Application.IServices
     public interface ICardAccessService
     {
         //Admin
-        Task<Result<bool>> Add(AccessCard accessCard, CancellationToken cancellationToken = default);
+        Task<Result<AccessCard>> Add(AccessCard accessCard, CancellationToken cancellationToken = default);
         Task<Result<bool>> Remove(Guid id, CancellationToken cancellationToken = default);
         Task<Result<bool>> ModifyAccessLevel(AccessCard accessCardToUpdate, CancellationToken cancellationToken = default);
         Task<Result<AccessCard>> GetById(Guid Id, CancellationToken cancellationToken = default);

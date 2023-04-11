@@ -54,9 +54,9 @@ namespace AdminApi.Controllers
             }
         }
 
-        [HttpGet("change-access")]
+        [HttpPatch("change-access")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> ModifyAccessCardAccessLevel([FromQuery] ModifyAccessCardLevelRequest request, CancellationToken token = default)
+        public async Task<IActionResult> ModifyAccessCardAccessLevel([FromBody] ModifyAccessCardLevelRequest request, CancellationToken token = default)
         {
             try
             {
