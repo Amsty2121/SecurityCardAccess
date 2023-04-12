@@ -5,9 +5,8 @@ using Repository;
 using LanguageExt.Common;
 using Domain.Exceptions;
 using System.Linq.Dynamic.Core;
-using LanguageExt.Pipes;
 using Domain.Models.PagedRequest;
-using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace Application.Services
 {
@@ -39,16 +38,17 @@ namespace Application.Services
 
         public async Task<Result<IEnumerable<Session>>> GetAll(CancellationToken cancellationToken = default)
         {
-            var result = _sessionRepository.GetAll(cancellationToken).Result;
-            result.ToList().ForEach(async session => {
-                if (session.EndUtcDate < DateTime.UtcNow && session.SessionStatus == SessionStatus.Active)
-                {
-                    session.SessionStatus = SessionStatus.Closed;
-                    await Task.Run(async () => await _sessionRepository.Update(session, cancellationToken));
-                }
-            });
+            var sessions = _sessionRepository.GetAll(cancellationToken).Result;
 
-            return new Result<IEnumerable<Session>>(result);
+            sessions.ToList().ForEach(session =>
+			{
+				if (session.EndUtcDate < DateTime.UtcNow && session.SessionStatus == SessionStatus.Active)
+				{
+					session.SessionStatus = SessionStatus.Closed;
+				}
+			});
+
+            return new Result<IEnumerable<Session>>(sessions);
         }
 
         public async Task<Result<Session>> GetById(Guid Id, CancellationToken cancellationToken = default)
@@ -119,7 +119,7 @@ namespace Application.Services
 
             await _sessionRepository.Update(session, cancellationToken);
             return new Result<bool>(true);
-        
+
         }
 
         public async Task<Result<PaginatedResult<Session>>> GetPagedData(PagedRequest request, CancellationToken cancellationToken = default)
@@ -127,7 +127,7 @@ namespace Application.Services
             return new Result<PaginatedResult<Session>>(await _sessionRepository.GetPagedData<Session>(request));
         }
 
-        private bool IsSessionActive(Session session) 
+        private bool IsSessionActive(Session session)
             => session.UsedUtcDate == null &&
                session.EndUtcDate > DateTime.UtcNow &&
                session.SessionStatus == SessionStatus.Active ? true : false;

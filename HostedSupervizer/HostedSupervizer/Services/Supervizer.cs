@@ -40,7 +40,7 @@ namespace HostedSupervizer.Services
         {
             var session = JsonSerializer.Deserialize<Session>(data.JsonData);
 
-            if(session.UserId != new Guid("00000000-0000-0000-0000-000000000000"))
+            if(session.EndUtcDate != (new Session()).EndUtcDate)
             {
                 return _storageQueue.TryAdd(session.Id, data);
             }

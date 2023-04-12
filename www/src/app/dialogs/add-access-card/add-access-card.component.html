@@ -2,10 +2,10 @@
 <div mat-dialog-content>
   <form [formGroup]="cardsControls">
     <mat-form-field appearance="outline">
-      <mat-label>Account ID</mat-label>
+      <mat-label>Account Username</mat-label>
       <mat-select formControlName="userId">
         <mat-option *ngFor="let user of _users" [value]="user.id">
-          {{ user.id }}
+          {{ user.username }}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="cardsControls.controls.userId.errors?.required"
