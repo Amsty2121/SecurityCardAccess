@@ -25,7 +25,7 @@ export class DeleteSessionComponent {
   deleteSession() {
     this._sessionsService.deleteSession(this.data.id).subscribe({
       next: () => {
-        this._dialogRef.close(true);
+        this._dialogRef.close(this.data.id);
         this._sbs.displayMessage('Session closed successfully');
       },
       error: () => {

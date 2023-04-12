@@ -133,8 +133,12 @@ export default class SessionsComponent
         ref
           .afterClosed()
           .pipe(takeUntil(this.destroy$))
-          .subscribe((deleted) => {
-            if (!deleted) return;
+          .subscribe((deletedId) => {
+            if (!deletedId) return;
+
+            this.dataSource.data[
+              this.dataSource.data.findIndex((card) => card.id === deletedId)
+            ].sessionStatus = 'Closed';
           })
       );
   }

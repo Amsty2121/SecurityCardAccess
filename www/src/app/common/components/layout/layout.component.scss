@@ -2,10 +2,6 @@
 
 $header-height: 60px;
 
-:host {
-  user-select: none;
-}
-
 .header {
   height: $header-height;
   background-color: #fff;

@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Deleting Session</h1>
+<h1 mat-dialog-title>Closing Session</h1>
 <div mat-dialog-content>
-  <span class="warn">The following session is being deleted!</span>
+  <span class="warn">The following session is being closed!</span>
   <div class="session">
     <span><b>ID:</b> {{ data?.id }}</span>
     <span><b>User ID:</b> {{ data?.userId }}</span>
@@ -12,6 +12,6 @@
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
   <button mat-button color="primary" cdkFocusInitial (click)="deleteSession()">
-    Delete
+    Proceed
   </button>
 </div>
