@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj": {}
+    "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj": {
+    "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj",
+        "projectUniqueName": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj",
         "projectName": "AdminApi",
-        "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj",
-        "packagesPath": "C:\\Users\\dimASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\obj\\",
+        "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\AdminApi.csproj",
+        "packagesPath": "C:\\Users\\DGusac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dimASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DGusac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,21 +26,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj"
+              "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj"
               },
-              "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj"
+              "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj"
+              "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj"
               }
             }
           }
@@ -99,6 +98,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -107,24 +124,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj": {
+    "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\dimASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\obj\\",
+        "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\DGusac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dimASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DGusac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -133,18 +150,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj"
+              "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj"
+              "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj"
               }
             }
           }
@@ -187,29 +203,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
+    "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\dimASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\DGusac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dimASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DGusac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -218,7 +248,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -253,29 +282,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj": {
+    "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj",
-        "packagesPath": "C:\\Users\\dimASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\obj\\",
+        "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\DGusac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dimASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DGusac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -284,15 +327,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\dimASUS\\Desktop\\do not delete\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj"
+              "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\DGusac\\OneDrive - ENDAVA\\Desktop\\do not delete\\SecurityCardAccessGit\\SecurityCardAccess\\AdminApi\\Domain\\Domain.csproj"
               }
             }
           }
@@ -337,12 +379,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

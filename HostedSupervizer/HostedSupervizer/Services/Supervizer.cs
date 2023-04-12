@@ -24,7 +24,7 @@ namespace HostedSupervizer.Services
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _timer = new Timer(DoSendWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(60));
+            _timer = new Timer(DoSendWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
 
             return Task.CompletedTask;
         }

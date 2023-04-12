@@ -7,6 +7,7 @@ using Domain.Exceptions;
 using System.Linq.Dynamic.Core;
 using LanguageExt.Pipes;
 using Domain.Models.PagedRequest;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Application.Services
 {
@@ -37,7 +38,18 @@ namespace Application.Services
         }
 
         public async Task<Result<IEnumerable<Session>>> GetAll(CancellationToken cancellationToken = default)
-            => new Result<IEnumerable<Session>>(await _sessionRepository.GetAll(cancellationToken));
+        {
+            var result = _sessionRepository.GetAll(cancellationToken).Result;
+            result.ToList().ForEach(async session => {
+                if (session.EndUtcDate < DateTime.UtcNow && session.SessionStatus == SessionStatus.Active)
+                {
+                    session.SessionStatus = SessionStatus.Closed;
+                    await Task.Run(async () => await _sessionRepository.Update(session, cancellationToken));
+                }
+            });
+
+            return new Result<IEnumerable<Session>>(result);
+        }
 
         public async Task<Result<Session>> GetById(Guid Id, CancellationToken cancellationToken = default)
         {
