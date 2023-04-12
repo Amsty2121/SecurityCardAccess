@@ -53,7 +53,6 @@ export default class SessionsComponent
 
   displayedColumns: string[] = [
     'id',
-    'userId',
     'accessCardId',
     'deviceId',
     'sessionStatus',
