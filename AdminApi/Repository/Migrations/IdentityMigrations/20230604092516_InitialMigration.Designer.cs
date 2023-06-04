@@ -12,8 +12,8 @@ using Repository;
 namespace Repository.Migrations.IdentityMigrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20230402122336_Initial")]
-    partial class Initial
+    [Migration("20230604092516_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

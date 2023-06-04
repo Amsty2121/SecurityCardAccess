@@ -105,7 +105,6 @@ namespace Repository.Migrations.SessionMigrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("DeviceId")
-                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("EndUtcDate")

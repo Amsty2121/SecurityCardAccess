@@ -10,7 +10,6 @@ namespace Domain.Entities
         [Required]
         public Guid AccessCardId { get; set; }
 
-        [Required]
         public Guid? DeviceId { get; set; }
 
         [Required]

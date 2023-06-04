@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations.SessionMigrations
 {
-    public partial class Initial : Migration
+    public partial class SessionMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,7 +47,7 @@ namespace Repository.Migrations.SessionMigrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AccessCardId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DeviceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DeviceId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     SessionStatus = table.Column<int>(type: "int", nullable: false),
                     StartUtcDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UsedUtcDate = table.Column<DateTime>(type: "datetime2", nullable: true),
