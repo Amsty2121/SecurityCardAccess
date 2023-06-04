@@ -89,7 +89,6 @@ namespace AdminApi.Controllers
 
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteSession([FromQuery] Guid id, CancellationToken cancellationToken = default)
         {
             try
@@ -110,8 +109,6 @@ namespace AdminApi.Controllers
         }
 
         [HttpGet("activate")]
-        [Authorize(Roles = "User, Admin")]
-
         public async Task<IActionResult> ActivateSession([FromQuery] Guid id, CancellationToken cancellationToken = default)
         {
             try
@@ -132,7 +129,6 @@ namespace AdminApi.Controllers
         }
 
         [HttpGet("all")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllSessions(CancellationToken cancellationToken = default)
         {
             try
@@ -146,7 +142,6 @@ namespace AdminApi.Controllers
         }
 
         [HttpGet("close")]
-        [Authorize(Roles = "Admin, Supervizer")]
         public async Task<IActionResult> CloseSession([FromBody] CloseSessionRequestBySessionId request,
                                                       CancellationToken cancellationToken = default)
         {
@@ -184,7 +179,6 @@ namespace AdminApi.Controllers
 		}
 
 		[HttpPost("paginated-search")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetPaged([FromBody] PagedRequest request, CancellationToken cancellationToken = default)
         {
             try
