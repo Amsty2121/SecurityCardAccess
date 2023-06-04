@@ -10,5 +10,8 @@ namespace AdminApi.Models
 
         [Required]
         public Guid DeviceId { get; set; }
+
+        [Required]
+		public bool IsFizic { get; set; }
 	}
 }
