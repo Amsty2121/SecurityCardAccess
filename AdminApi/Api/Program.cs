@@ -93,8 +93,8 @@ var app = builder.Build();
 
 using (var scope = app.Services.GetService<IServiceScopeFactory>().CreateScope())
 {
-    // scope.ServiceProvider.GetRequiredService<IdentityContext>().Database.Migrate();
-    // scope.ServiceProvider.GetRequiredService<SessionContext>().Database.Migrate();
+    scope.ServiceProvider.GetRequiredService<IdentityContext>().Database.Migrate();
+    scope.ServiceProvider.GetRequiredService<SessionContext>().Database.Migrate();
 }
 
 // Configure the HTTP request pipeline.
