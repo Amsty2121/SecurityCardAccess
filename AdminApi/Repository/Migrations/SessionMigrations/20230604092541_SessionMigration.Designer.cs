@@ -12,8 +12,8 @@ using Repository;
 namespace Repository.Migrations.SessionMigrations
 {
     [DbContext(typeof(SessionContext))]
-    [Migration("20230402122358_Initial")]
-    partial class Initial
+    [Migration("20230604092541_SessionMigration")]
+    partial class SessionMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,7 +107,6 @@ namespace Repository.Migrations.SessionMigrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("DeviceId")
-                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("EndUtcDate")

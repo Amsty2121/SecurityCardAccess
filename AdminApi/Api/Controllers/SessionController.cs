@@ -4,8 +4,12 @@ using Application.IServices;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Models.PagedRequest;
+using LanguageExt;
+using LanguageExt.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Repository;
+using Repository.Interfaces;
 using System.Threading;
 
 namespace AdminApi.Controllers
@@ -16,18 +20,19 @@ namespace AdminApi.Controllers
     {
         private readonly ISessionService _sessionService;
         private readonly ISyncService _syncService;
+		private readonly IGenericRepository<SessionContext, Session> _sessionRepository;
 
-        private readonly IMapper _mapper;
+		private readonly IMapper _mapper;
 
-        public SessionController(ISessionService sessionService, IMapper mapper, ISyncService syncService)
-        {
-            _sessionService = sessionService;
-            _mapper = mapper;
-            _syncService = syncService;
-        }
+		public SessionController(ISessionService sessionService, IMapper mapper, ISyncService syncService, IGenericRepository<SessionContext, Session> sessionRepository)
+		{
+			_sessionService = sessionService;
+			_mapper = mapper;
+			_syncService = syncService;
+			_sessionRepository = sessionRepository;
+		}
 
-        [HttpPost("withDevice")]
-        [Authorize(Roles = "Admin")]
+		[HttpPost("withDevice")]
         public async Task<IActionResult> AddSessionWithDevice([FromBody] GenerateSessionRequestByAdminWithDevice request,
                                                               CancellationToken cancellationToken = default)
         {
@@ -35,9 +40,17 @@ namespace AdminApi.Controllers
             {
                 var session = _mapper.Map<Session>(request);
                 session.Id = Guid.NewGuid();
-                var result = await _sessionService.Add(session, cancellationToken);
+				Result<Session> result;
+				if (request.IsFizic)
+				{
+					result = await _sessionService.Add(session, cancellationToken);
+				}
+				else
+				{
+					result = await _sessionService.AddFizicCard(session, cancellationToken);
+				}
 
-                if (result.IsSuccess)
+				if (result.IsSuccess)
                 {
                     _syncService.AddSession(session);
                 }
@@ -51,7 +64,6 @@ namespace AdminApi.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddSessionWithoutDevice([FromBody] GenerateSessionRequestByAdminWithoutDevice request,
                                                                  CancellationToken cancellationToken = default)
         {
@@ -59,14 +71,15 @@ namespace AdminApi.Controllers
             {
                 var session = _mapper.Map<Session>(request);
                 session.Id = Guid.NewGuid();
-                var result = await _sessionService.Add(session, cancellationToken);
 
-                if (result.IsSuccess)
-                {
-                    _syncService.AddSession(session);
-                }
+			    var result = await _sessionService.Add(session, cancellationToken);
 
-                return result.ToOk(c => c);
+				if (result.IsSuccess)
+				{
+					_syncService.AddSession(session);
+				}
+
+				return result.ToOk(c => c);
             }
             catch (Exception)
             {
@@ -76,7 +89,6 @@ namespace AdminApi.Controllers
 
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteSession([FromQuery] Guid id, CancellationToken cancellationToken = default)
         {
             try
@@ -97,8 +109,6 @@ namespace AdminApi.Controllers
         }
 
         [HttpGet("activate")]
-        [Authorize(Roles = "User, Admin")]
-
         public async Task<IActionResult> ActivateSession([FromQuery] Guid id, CancellationToken cancellationToken = default)
         {
             try
@@ -119,7 +129,6 @@ namespace AdminApi.Controllers
         }
 
         [HttpGet("all")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllSessions(CancellationToken cancellationToken = default)
         {
             try
@@ -133,7 +142,6 @@ namespace AdminApi.Controllers
         }
 
         [HttpGet("close")]
-        [Authorize(Roles = "Admin, Supervizer")]
         public async Task<IActionResult> CloseSession([FromBody] CloseSessionRequestBySessionId request,
                                                       CancellationToken cancellationToken = default)
         {
@@ -149,8 +157,28 @@ namespace AdminApi.Controllers
             }
         }
 
-        [HttpPost("paginated-search")]
-        [Authorize(Roles = "Admin")]
+		[HttpGet("closeByDevice")]
+		public async Task<IActionResult> CloseSessionByDevice([FromBody] GenerateSessionRequestByAdminWithDevice request,
+													  CancellationToken cancellationToken = default)
+		{
+			try
+			{
+                var sessions = await _sessionRepository.GetWhere(x => x.AccessCardId.Equals(request.AccessCardId) && x.DeviceId.Equals(request.DeviceId) && x.SessionStatus == SessionStatus.Active);
+
+                if (!sessions.Any())
+                    return BadRequest();
+
+                var result = await _sessionService.CloseSession(sessions.First().Id, cancellationToken);
+
+				return result.ToOk(c => true);
+			}
+			catch (Exception)
+			{
+				return Unauthorized();
+			}
+		}
+
+		[HttpPost("paginated-search")]
         public async Task<IActionResult> GetPaged([FromBody] PagedRequest request, CancellationToken cancellationToken = default)
         {
             try

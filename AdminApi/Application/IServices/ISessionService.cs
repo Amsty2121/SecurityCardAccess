@@ -8,7 +8,8 @@ namespace Application.IServices
     {
         //User, Admin
         Task<Result<Session>> Add(Session sessionToActivate, CancellationToken cancellationToken = default); // Open session
-        Task<Result<bool>> Use(Guid id, CancellationToken cancellationToken = default); // Activate session
+		Task<Result<Session>> AddFizicCard(Session sessionToActivate, CancellationToken cancellationToken = default); // Open session
+		Task<Result<bool>> Use(Guid id, CancellationToken cancellationToken = default); // Activate session
 
         //Admin
         Task<Result<bool>> Remove(Guid id, CancellationToken cancellationToken = default); // Close session

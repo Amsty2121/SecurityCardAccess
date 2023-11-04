@@ -12,6 +12,8 @@ namespace Application.Services
 {
     public class SessionService : ISessionService
     {
+
+
         private readonly IGenericRepository<SessionContext, Session> _sessionRepository;
         public SessionService(IGenericRepository<SessionContext, Session> sessionRepository)
         {
@@ -36,7 +38,21 @@ namespace Application.Services
             return new Result<Session>(session);
         }
 
-        public async Task<Result<IEnumerable<Session>>> GetAll(CancellationToken cancellationToken = default)
+		public async Task<Result<Session>> AddFizicCard(Session session, CancellationToken cancellationToken = default)
+		{
+			session.Id = Guid.NewGuid();
+			session.StartUtcDate = DateTime.UtcNow;
+			//sessionToActivate.EndUtcDate = DateTime.UtcNow + TimeSpan.FromMinutes(5);
+			session.EndUtcDate = DateTime.UtcNow + TimeSpan.FromSeconds(60);
+			session.SessionStatus = SessionStatus.Closed;
+			session.UsedUtcDate = null;
+
+			await _sessionRepository.Add(session, cancellationToken);
+
+			return new Result<Session>(session);
+		}
+
+		public async Task<Result<IEnumerable<Session>>> GetAll(CancellationToken cancellationToken = default)
         {
             var sessions = _sessionRepository.GetAll(cancellationToken).Result;
 
@@ -141,5 +157,7 @@ namespace Application.Services
                                                             x.EndUtcDate > DateTime.UtcNow, cancellationToken).Result.ToList().OrderBy(x => x.EndUtcDate).LastOrDefault();
             return validSession != null;
         }
-    }
+
+
+	}
 }
